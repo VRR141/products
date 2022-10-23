@@ -1,4 +1,4 @@
-package org.example.dao;
+package org.example.service.ProductBagService;
 
 import org.example.model.Product;
 
@@ -7,7 +7,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ProductBagDAOImpl implements ProductBagDAO{
+public class ProductBagServiceImpl implements ProductBagService{
 
     private Map<Product, Integer> productMap = new HashMap<>();
 
@@ -37,6 +37,6 @@ public class ProductBagDAOImpl implements ProductBagDAO{
         for (Product p: productMap.keySet()) {
             sb.append(p).append(" quantity: ").append(productMap.get(p)).append("\n");
         }
-        return sb.toString();
-    }
+        return sb.toString();    }
+
 }

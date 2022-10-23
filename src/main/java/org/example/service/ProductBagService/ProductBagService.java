@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.ProductBagService;
 
 import org.example.model.Product;
 

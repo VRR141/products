@@ -1,53 +1,21 @@
 package org.example;
 
-import org.example.model.Fabricator;
-import org.example.model.Product;
-import org.example.model.ProductBuilder;
-import org.example.service.*;
-
-import java.util.*;
-
-//TODO Трекинг заказа в системе доставки
-//TODO Возврат заказа, повтороение заказа
-//TODO Простая рекомендательная система для покупок
+import org.example.dao.ProductDAO;
+import org.example.dao.ProductDAOImpl;
+import org.example.service.ProductRating.ProductRatingService;
+import org.example.service.Recommend.RecommendService;
 
 public class Main {
 
     public static void main(String[] args) {
-        var b = getMockList();
-        for (Product c: b){
-            ProductRatingService.getInstance().addRating(c, Math.random()*(10));
-        }
+        RecommendService recommendService = new RecommendService();
+        System.out.println(recommendService.getRecommend());
+
         System.out.println(ProductRatingService.getInstance().printRatings());
     }
 
-    public static List<Product> getMockList(){
-        ProductBuilder productBuilder = new ProductBuilder();
-        List<Product> products = Arrays.asList(
-                productBuilder.setName("Praha")
-                        .setPrice(250)
-                        .setFabricator(Fabricator.METROPOL)
-                        .build(),
-                productBuilder.setName("Medovik")
-                        .setPrice(100)
-                        .setFabricator(Fabricator.CHUPA_CHUPS)
-                        .build(),
-                productBuilder.setName("Napoleon")
-                        .setPrice(439)
-                        .setFabricator(Fabricator.NEVSKIE_BEREGA)
-                        .build(),
-                productBuilder.setName("Vafelniy")
-                        .setPrice(79.99)
-                        .build(),
-                productBuilder.setName("Phili-Beiker")
-                        .setPrice(528)
-                        .setFabricator(Fabricator.BALTIYSKIY_HLEB)
-                        .build(),
-                productBuilder.setName("Grafskie Razvalini")
-                        .setPrice(289)
-                        .setFabricator(Fabricator.NEVSKIE_BEREGA)
-                        .build()
-        );
-        return products;
+    static {
+        ProductDAO productDAO = new ProductDAOImpl();
     }
+
 }

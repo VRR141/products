@@ -1,7 +1,8 @@
-package org.example.service;
+package org.example.service.ProductRating;
 
 import org.example.model.Product;
 import org.example.model.Rating;
+import org.example.service.ProductList;
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -26,7 +27,6 @@ public class ProductRatingService {
 
     public void addRating(Product product, double rating){
         ratings.add(new Rating(product, rating));
-        sortRating();
     }
 
     public void removeFromRatingList(Product product){
@@ -39,7 +39,6 @@ public class ProductRatingService {
                 r.setRating(rating);
             }
         }
-        sortRating();
     }
 
     private void sortRating(){
@@ -51,12 +50,24 @@ public class ProductRatingService {
         });
     }
 
+    public List<Rating> getRatings(){
+        sortRating();
+        return new ArrayList<>(ratings);
+    }
+
     public String printRatings(){
         StringBuilder sb = new StringBuilder();
-        for (Rating r: ratings){
+        List<Rating> temp = getRatings();
+        for (Rating r: temp){
             sb.append(r).append("\n");
         }
         return sb.toString();
+    }
+
+    static {
+        for (Product c: ProductList.getInstance().getProductList()){
+            ProductRatingService.getInstance().addRating(c, Math.random()*(10));
+        }
     }
 
 }

@@ -1,7 +1,8 @@
-package org.example.service;
+package org.example.service.ProductFIlter;
 
 import org.example.model.Fabricator;
 import org.example.model.Product;
+import org.example.service.ProductList;
 
 import java.util.List;
 import java.util.stream.Collectors;

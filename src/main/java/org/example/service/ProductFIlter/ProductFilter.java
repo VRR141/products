@@ -1,4 +1,4 @@
-package org.example.service;
+package org.example.service.ProductFIlter;
 
 import org.example.model.Fabricator;
 import org.example.model.Product;
