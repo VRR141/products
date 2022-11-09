@@ -19,3 +19,9 @@ _**Open-closed principle**_
 **_Dependency inversion principle_**
 
 Классы зависят от абстракций ([DeliveryServiceImpl](https://github.com/VRR141/products/blob/main/src/main/java/org/example/service/Delivery/DeliveryServiceImpl.java#L7))
+
+_**DRY**_
+[ProductFilterImpl](https://github.com/VRR141/products/blob/main/src/main/java/org/example/service/ProductFIlter/ProductFilterImpl.java#L34-L35)
+
+_**MAGIC**_
+[RecommendService](https://github.com/VRR141/products/blob/main/src/main/java/org/example/service/Recommend/RecommendService.java#L21,L12)
