@@ -1,9 +1,9 @@
 _**Single-responsibility principle:**_ 
-* dao
+* [dao][https://github.com/VRR141/products/blob/main/src/main/java/org/example/dao/ProductDAOImpl.java]
 * model
 * service
   
-Каждый класс в вышеуказанных пакетах за свою сущность.
+Каждый класс в вышеуказанных пакетах отвечает за свою сущность.
 
 _**Open-closed principle**_
 
